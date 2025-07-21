@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+        <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="icon" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+
+    <meta name="description"
+        content="Ocean Bank offers checking, savings, credit cards and loans with award-winning digital banking">
+    <title>Ocean Bank Internet Banking - Welcome to dashboard</title>
+    <meta name="color-scheme" content="light dark">
+
+      <!-- PDF CDN LINK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Preload critical resources -->
+    <link rel="stylesheet" href="./css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" as="style">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- Added font-display:swap via URL parameter -->
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  
+
+</head>
+
+<body>
+    <!-- Toast -->
+    <div id="toast" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="toast-content">
+            <span class="toast-icon">📨</span>
+            <span class="toast-message">Verification link sent to your email</span>
+            <button class="toast-close" aria-label="Close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+
+        <div id="menu">
+            <div itemscope itemtype="https://schema.org/FinancialService">
+                <div class="logo-container">
+                    <a href="/" aria-label="Ocean Bank Home" itemprop="url">
+                        <img src="../media/Icons/oceanLogo.min.svg" alt="Ocean Bank" width="160" height="37"
+                            class="logo">
+                        <span itemprop="name">Ocean Bank</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="dash-board"><a href="/dashboard/index.html">
+                        <img src="../media/Icons/grid-fill.svg" alt="" width="25" loading="lazy"> Dashboard
+                    </a></div>
+                <div><a href="#">
+                        <span class="material-symbols-outlined" aria-hidden="true">supervisor_account</span>
+                        Beneficiaries
+                    </a></div>
+                <div><a href="#" class="tx-menu">
+                        <span class="material-symbols-outlined" aria-hidden="true">compare_arrows</span> Transactions
+                    </a></div>
+                <div><a href="#">
+                        <img src="../media/Icons/chat-fill.svg" alt="" width="25" loading="lazy"> Support
+                    </a></div>
+                <div><a href="#">
+                        <img src="../media/Icons/person-fill-gear.svg" alt="" width="30" loading="lazy"> Profile
+                        Settings
+                    </a></div>
+                <div><a href="#" class="logout">
+                        <span class="material-symbols-outlined" aria-hidden="true" style="color: #18a0ae">logout</span>
+                        Logout
+                    </a></div>
+            </div>
+        </div>
+        <div id="main">
+            <div>
+                <header>
+                    <nav>
+                        <div class="greetings-wrap">
+                            <h1 id="greetings-el">Hello, Guest <span class="wave">👋🏿</span></h1>
+                        </div>
+                        <div class="profile-wrap">
+                            <div>
+                                <div class="notif"></div>
+                                <img src="../media/Icons/bell-fill.svg" alt="Bell icon" loading="lazy" width="25">
+                                <span class="username-initials">
+                                    U N
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="user-name">User Name</h3>
+                                <p class="user-email">user-email</p>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <div class="main-body">
+                <div id="account-summary">
+                    <div>
+                        <h3 style="display: flex; align-items: center; gap: 3px;">Oceaner <img src="../media/Icons/flower1.svg" loading="lazy" style="width: 20px;"></h3>
+                        <p class="account-number" style="margin: 5px 0;">account-number</p>
+                        <span class="acct-type-wrap">
+                            <h3 class="active-account-type">Regular</h3>
+                            <span class="material-symbols-outlined caret" aria-hidden="true">keyboard_arrow_down</span>
+                            <ul class="account-dropdown">
+                                <li data-value="regular">Regular</li>
+                                <li data-value="savings">Savings</li>
+                            </ul>
+                        </span>
+                        <span class="balance-wrap">
+                            <h3 class="account-balance">---</h3>
+                            <span class="material-symbols-outlined hide-bal" aria-hidden="true">visibility_off</span>
+                        </span>
+                        <span>
+                            <span class="extras">
+                                <span>
+                                    <button>
+                                        <span class="material-symbols-outlined" aria-hidden="true">receipt_long</span>
+                                        <span>Pay bills</span>
+                                    </button>
+                                </span>
+                                <span>
+                                    <button class="dashboard-transfer-btn">
+                                        <span class="material-symbols-outlined"
+                                            aria-hidden="true">arrow_circle_up</span>
+                                        <span>Transfer</span>
+                                    </button>
+                                </span>
+                                <span>
+                                    <button>
+                                        <span class="material-symbols-outlined"
+                                            aria-hidden="true">currency_bitcoin</span>
+                                        <span>Crypto</span>
+                                    </button>
+                                </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div>
+                        <h3>Most Recent Transfers</h3>
+                        <span class="recent-history-wrap">
+                            <span class="recent-history">
+                                <p><span class="material-symbols-outlined" aria-hidden="true">error</span> You have no
+                                    recent transfer history.</p>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div id="sections">
+                    <div class="sections-inner">
+                        <div class="category-head">
+
+                            <span><button class="category-btn" data-target="account-section">
+                                    Account
+                                </button></span>
+
+                            <span><button class="category-btn" data-target="transfer-section">
+                                    Transfers
+                                </button></span>
+
+                            <span><button class="category-btn" data-target="bill-payments-section">
+                                    Bill Payments
+                                </button></span>
+
+                            <span><button class="category-btn" data-target="lifestyles-section">
+                                    Lifestyles
+                                </button></span>
+
+                            <span><button class="category-btn" data-target="check-cards-section">
+                                    Cheques & Cards
+                                </button></span>
+
+                        </div>
+                        <h3 id="active-category">Account</h3>
+                        <div class="category">
+
+                            <div id="sec-account" data-target="account-section" class="active">
+                                
+                                <span><button class="transaction-history" data-target="transaction-history-section">
+                                    <span>
+                                        <img src="../media/Icons/arrow-repeat.svg" alt="">
+                                    </span>
+                                    <span>Transaction History</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/file-earmark-text.svg" alt="">
+                                    </span>
+                                    <span>Generate Statement</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/file-earmark-check.svg" alt="">
+                                    </span>
+                                    <span>Signed Statement</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/person-fill-add.svg" alt="">
+                                    </span>
+                                    <span>Beneficiaries</span>
+                                </button></span>
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/shield-exclamation.svg" alt="">
+                                    </span>
+                                    <span>Authorize a user</span>
+                                </button></span>
+
+                            </div>
+
+                            <div id="sec-transfer" data-target="transfer-section">
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/coin.svg" alt="">
+                                    </span>
+                                    <span>M2M Transfer</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/send-fill.svg" alt="">
+                                    </span>
+                                    <span>Send Money to Others</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/globe-americas.svg" alt="">
+                                    </span>
+                                    <span>International Transfers</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/arrow-left-right.svg" alt="">
+                                    </span>
+                                    <span>Transfer Between My Accounts</span>
+                                </button></span>
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/journal-text.svg" alt="">
+                                    </span>
+                                    <span>Transfer History</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/clock-history.svg" alt="">
+                                    </span>
+                                    <span>Schedule Transfer</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/lightning-fill.svg" alt="">
+                                    </span>
+                                    <span>Zelle® / Instant Transfer</span>
+                                </button></span>
+
+                            </div>
+
+                            <div id="sec-bill-payments" data-target="bill-payments-section">
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/plus-circle.svg" alt="">
+                                    </span>
+                                    <span>Pay a New Bill</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/bookmark-check.svg" alt="">
+                                    </span>
+                                    <span>Saved Billers / Payees</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/clock-history.svg" alt="">
+                                    </span>
+                                    <span>View Payment History</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/calendar-check.svg" alt="">
+                                    </span>
+                                    <span>Bill Reminders / Alerts</span>
+                                </button></span>
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/journal-text.svg" alt="">
+                                    </span>
+                                    <span>Scheduled Payment</span>
+                                </button></span>
+
+                            </div>
+
+                            <div id="sec-lifestyles" data-target="lifestyles-section">
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/gift.svg" alt="">
+                                    </span>
+                                    <span>Shopping(e-voucher)</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/airplane.svg" alt="">
+                                    </span>
+                                    <span>Travel and Adventure</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/sun.svg" alt="">
+                                    </span>
+                                    <span>Outdoor Lifestyle</span>
+                                </button></span>
+
+                            </div>
+
+                            <div id="sec-check-cards" data-target="check-cards-section">
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/credit-card-(1).svg" alt="">
+                                    </span>
+                                    <span>My Cards</span>
+                                </button></span>
+                                
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/journal-plus.svg" alt="">
+                                    </span>
+                                    <span>Request Cheque Book</span>
+                                </button></span>
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/check-circle.svg" alt="">
+                                    </span>
+                                    <span>Activate New Card</span>
+                                </button></span>
+
+                                <span><button>
+                                    <span>
+                                        <img src="../media/Icons/exclamation.svg" alt="">
+                                    </span>
+                                    <span>Replace Lost/Damaged Card</span>
+                                </button></span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <button onclick="fundAccount('regular', 1500.50)">+ Fund Regular ($1500)</button> -->
+
+    </div>
+
+    <!-- Transfer Page -->
+    <div id="transfer-body" class="slide-section">
+        <div>
+            <div class="return-btn">
+                <span class="material-symbols-outlined">arrow_back</span> back
+            </div>
+            <h3 id="active-category" style="font-size: 1.3em;">Oceaners Transfers</h3>
+            <div id="main-body">
+                <div id="heading">
+
+                    <span><button data-target="myself" id="to-my-acct-btn">
+                        <img src="../media/Icons/person-fill-add.svg" alt="" aria-hidden="true" loading="lazy"> To My Other Accounts
+                    </button></span>
+
+                    <span><button data-target="oceaner" id="to-oceaner-btn">
+                        <img src="../media/Icons/arrow-repeat.svg" alt="" aria-hidden="true" loading="lazy"> To Another Oceaner
+                    </button></span>
+
+                </div>
+                <!-- <hr> -->
+                <div id="body">
+                
+                    <div id="form-slider">
+
+                        <div class="first-child">
+                            <form id="inward-transfer-form">
+                            <span class="s-a-element">
+                                <p>From</p>
+                                <select name="fromAccount" id="select-account" required>
+                                <option value="">Select account</option>
+                                <option value="savings">Savings Account</option>
+                                <option value="regular">Regular Account</option>
+                                </select>
+                            </span>
+
+                            <span class="s-a-element">
+                                <p>To</p>
+                                <select name="toAccount" id="select-destination" required>
+                                <option value="">Select account</option>
+                                <option value="savings">Savings Account</option>
+                                <option value="regular">Regular Account</option>
+                                </select>
+                            </span>
+
+                            <span class="amount-element">
+                                <p>Amount</p>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="Enter a value" id="inward-transfer-amount" required />
+                            </span>
+
+                            <span class="narration-element">
+                                <p>Narration</p>
+                                <textarea name="narration" id="narration" cols="30" rows="3">Enter a description...</textarea>
+                            </span>
+
+                            <input type="submit" id="inwardSubmit" value="Next">
+                            </form>
+                        </div>
+
+                        <div class="second-child">
+                            <form>
+                            <span class="s-a-element account-num-element">
+                                <p>Enter Receiver's Account Number</p>
+                                <input type="text" id="receiver-account-number" placeholder="e.g., OB23456789" maxlength="12" />
+                            </span>
+
+                            <span class="amount-element receiver-name-element">
+                                <p id="receiver-name" style="margin: 8px 0; font-size: 0.95em; color: #999;">Receiver's Name</p>
+                                <span id="receiver-lookup-spinner" style="display: none; font-size: 0.9em; color: #18a0ae;">Fetching account name...</span>
+                            </span>
+
+                            <span class="amount-element">
+                                <p>Amount</p>
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="Enter a value" id="oceaner-transfer-amount" />
+                            </span>
+
+                            <span class="narration-element">
+                                <p>Narration</p>
+                                <textarea id="oceaner-narration" cols="30" rows="3" placeholder="What's this for?"></textarea>
+                            </span>
+
+                            <input type="button" id="oceanerSubmit" value="Send">
+                            </form>
+                        </div>
+                        </div>
+
+
+                </div>
+                <div id="summary-page">
+                    <div class="inner">
+                        <h1>Review Your Action</h1>
+                        <hr>
+                        <div class="summary-page">
+                            <span><strong>Sender:</strong> Sender Name</span>
+                            <span><strong>Receiver:</strong> Receiver name</span>
+                            <span><strong>Amount:</strong> Amount</span>
+                            <span><strong>Narration:</strong> Details</span>
+                            <hr>
+                            <button id="proceed-btn" type="submit">Proceed</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="confirmation-page" hidden>
+                    <div>
+                        <h1>Confirm Your Payment</h1>
+                        <hr>
+                        <div class="summary-page">
+                            <div>
+                                <label for="">Enter Your Pin</label>
+                                <input type="text" placeholder="12345">
+                            </div>
+                            <button id="proceed-btn" type="submit">Proceed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Transaction History -->
+    <div id="transaction-history" data-target="transaction-history-section">
+        <div class="return-button">
+            <span class="material-symbols-outlined">arrow_back</span> back
+        </div>
+        <div class="tx-h-inner">
+            <h3>Transaction History</h3>
+            <div>
+                <span class="acc-no">
+                    
+                </span>
+                <span>
+                    <span class="material-symbols-outlined" aria-hidden="true">error</span> Need a receipt ? Select a transaction to get one.
+                </span>
+                <hr>
+                <div class="tx-history">
+
+                </div>
+            </div>
+        </div>
+    </div>
+     
+
+    <script type="module" src="./scripts/scripts.js"></script>
+</body>
+
+</html>

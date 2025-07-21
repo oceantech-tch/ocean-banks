@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <!-- Added maximum-scale to prevent unwanted zooming -->
+    <title>Ocean Bank - Modern Banking Solutions</title>
+    <!-- Enhanced title for SEO -->
+    <meta name="description" content="Ocean Bank offers checking, savings, credit cards and loans with award-winning digital banking">
+    <!-- Added meta description for SEO -->
+    
+    <!-- Dark theme function -->
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+
+    <meta name="theme-color" content="#004080" />
+    <meta name="description" content="Ocean Bank – A secure, modern digital bank designed for your financial freedom." />
+
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" as="style">
+    <link rel="preload" href="./media/Icons/oceanLogo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="./auth/styles.css" as="style">
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./auth/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Added font-display:swap via URL parameter -->
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Import media queries -->
+    <link rel="stylesheet" href="./media_queries/styles.css">
+    
+</head>
+
+<body class="fade-in">
+    <!-- Added skip link for keyboard users -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <nav aria-label="Main navigation">
+            <!-- Aria-label for screen readers -->
+            <div itemscope itemtype="https://schema.org/FinancialService">
+                <div class="logo-container">
+                    <a href="/" aria-label="Ocean Bank Home" itemprop="url" >
+                        <img src="./media/Icons/oceanLogo.svg" alt="Ocean Bank" width="160" height="37" class="logo">
+                        <span itemprop="name">Ocean Bank</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <div class="language-switch">
+                    <a href="#language" aria-label="Switch to Spanish"><span class="material-symbols-outlined" aria-hidden="true">language</span>es Español</a>
+                    
+                </div>
+                <div class="contact-link">
+                <a href="#contact" aria-label="Contact us"><span class="material-symbols-outlined" aria-hidden="true">support_agent</span> Contact us</a>
+                </div>
+                <div class="signupRedirectLinkWrap hideSignup">
+                    <button class="signupRedirectLink" aria-expanded="false" aria-controls="side-login-form"><span class="material-symbols-outlined" aria-hidden="true">how_to_reg</span> Signup</button>
+                </div>
+                <div class="loginRedirectionWrap">
+                    <button id="loginRedirectLink" aria-expanded="false" aria-controls="side-login-form"><span class="material-symbols-outlined" aria-hidden="true">login</span>Login</button>  
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Toast notifier -->
+     <div id="toast" role="alert" aria-live="polite" aria-atomic="true">
+        <div class="toast-content">
+            <span class="toast-icon">📨</span>
+            <span class="toast-message">Verification link sent to your email</span>
+            <button class="toast-close" aria-label="Close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Menu content for screen <600px -->
+     <div id="side-menu" role="dialog" aria-modal="true">
+        <ul>
+            <li>Login <span class="material-symbols-outlined">login</span>  </li>
+            <li>Signup <span class="material-symbols-outlined">person_add</span></li>
+            <li>Help <span class="material-symbols-outlined">help</span></li>
+        </ul>
+     </div>
+    
+    <!-- Side Login Form -->
+    <div id="side-login-form" role="dialog" aria-modal="true" aria-labelledby="loginFormTitle">
+        <span class="return-btn">
+            <img src="./media/Icons/arrow_back_30dp_000_FILL0_wght400_GRAD0_opsz24.svg" alt="Arrow back" loading="lazy"> back
+        </span>
+        <form id="sideLoginForm" novalidate>
+            <h3 id="loginFormTitle">Login</h3>
+            <div class="email-element">
+                <label for="email-field">Email</label>
+                <input type="text" name="email-field" placeholder="enter your email" id="emailEl" required minlength="4" aria-required="true">
+            </div>
+            <div class="password-element">
+                <label for="password-field">Password</label>
+                <input type="password" placeholder="password" id="passwordEl" required minlength="8" aria-required="true">
+            </div>
+           
+            <span class="password-incorrect"><a href="#forgot"><span class="material-symbols-outlined" aria-hidden="true">error</span> Incorrect email or Password. Please check and try again.</a></span>
+            <span class="forget-pass-link"><a href="#forgot">Forget Password ?</a></span>
+            <button type="submit"><span class="material-symbols-outlined" aria-hidden="true">lock_open</span> Login</button>
+        </form>
+        <hr>
+        <div class="forget-pass-link-2">
+            <p class="forget-pass-link-2"><a href="#forgot">Forget Username/Password ?</a></p>
+            <p>New here <a href="#enroll">Enroll</a></p>
+            <span style="text-align: center;">
+                <p><a href="#contact">Contact Us.. <span class="material-symbols-outlined" aria-hidden="true">chat</span></a></p>
+            </span>
+        </div>
+        <div>
+            <span>or login with</span>
+            <span><img src="./media/Icons/google-icon.svg" alt="Google logo icon" loading="lazy" width="25"> Login with Google</span>
+        </div>
+    </div>
+
+    <section id="signup-body">
+        <div id="loaderOverlay">
+            <div class="spinner"></div>
+            <p>Please wait, redirecting...</p>
+        </div>
+
+        <div class="signup-body-inner">
+            <div class="return-btn-wrap">
+                <span class="material-symbols-outlined" aria-hidden="true">
+                arrow_back
+                </span> back
+            </div>
+            <form id="form-el">
+                <h2>Register</h2>
+                
+                <div class="name-element">
+                    <div>
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" id="firstname" placeholder="John" aria-required="true">
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastname" placeholder="Doe" aria-required="true">
+                    </div>
+                </div>
+                
+                <div class="contact-element">
+                    <div>
+                        <label for="phone">Phone no</label>
+                        <input type="number" name="phone" id="phone" placeholder="enter Your phone no" aria-required="true">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="enter your email" aria-required="true">
+                    </div>
+                </div>
+                
+                <div class="password-element">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="password" aria-required="true">
+                    <span class="material-symbols-outlined hide-password" aria-hidden="true">
+        visibility_off
+        </span>
+                </div>
+                <span class="password-hint">must contain 8 char.</span>
+                <div class="password-element">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" name="confirm-password" id="confirm-password" placeholder="password" required aria-required="true">
+                    <span class="material-symbols-outlined hide-password" aria-hidden="true">
+        visibility_off
+        </span>
+                </div>
+                <p id="confPassText" style="color: #f00;"></p>
+                <button id="submit-btn"><span class="material-symbols-outlined" aria-hidden="true">person_add</span> Create Account</button>
+            </form>
+            <span class="registered-link">Already Registered ? <a href="#">Login here</a></span>
+            <div class="login-link">
+                <span>By continuing, you agree to our <a href="#">Terms of Service </a>and <br><a href="#">Privacy Policy.</a></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main id for skip link -->
+    <main id="main" tabindex="-1">
+
+        <!-- Call to Action Section -->
+        <div id="cta" aria-label="Call to action">
+            
+            <div id="ctaText">
+                <p id="infos"></p>
+            </div>
+            
+            <div id="ctaButton">
+                <p>Take control of your finances today—open an account and experience seamless banking with Ocean.</p>
+                <button id="ctaButtonAction">Get Started <span class="material-symbols-outlined" aria-hidden="true">
+                        arrow_outward
+                    </span></button>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div id="categories" role="navigation" aria-label="Banking services">
+            <!-- Checking Dropdown -->
+            <div class="categories-inner-div">
+                <a href="#" aria-expanded="false" aria-controls="checking-dropdown">
+                    <img src="./media/Icons/bank.svg" alt="Checking account icon">
+                    Checking
+                    <span class="material-symbols-outlined" aria-hidden="true">
+                        chevron_right
+                    </span>
+                </a>
+                <div id="checking-dropdown" class="category-dropdown">
+                    <div class="dropdown-header">Checking Accounts</div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Account Types</div>
+                        <a href="#" class="dropdown-link">Basic Checking</a>
+                        <a href="#" class="dropdown-link">Interest Checking</a>
+                        <a href="#" class="dropdown-link">Student Checking</a>
+                    </div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Services</div>
+                        <a href="#" class="dropdown-link">Overdraft Protection</a>
+                        <a href="#" class="dropdown-link">Mobile Check Deposit</a>
+                        <a href="#" class="dropdown-link">Debit Card Options</a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Savings & CDs Dropdown -->
+            <div class="categories-inner-div">
+                <a href="#" aria-expanded="false" aria-controls="savings-dropdown">
+                    <img src="./media/Icons/piggy-bank.svg" alt="Savings account icon"> Savings & CDs <span class="material-symbols-outlined" aria-hidden="true">
+                        chevron_right
+                    </span>
+                </a>
+                <div id="savings-dropdown" class="category-dropdown">
+                    <div class="dropdown-header">Savings Solutions</div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Savings Accounts</div>
+                        <a href="#" class="dropdown-link">Regular Savings</a>
+                        <a href="#" class="dropdown-link">High-Yield Savings</a>
+                        <a href="#" class="dropdown-link">Money Market</a>
+                    </div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Certificates of Deposit</div>
+                        <a href="#" class="dropdown-link">6-Month CD</a>
+                        <a href="#" class="dropdown-link">12-Month CD</a>
+                        <a href="#" class="dropdown-link">Jumbo CDs</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credit Cards Dropdown -->
+            <div class="categories-inner-div">
+                <a href="#" aria-expanded="false" aria-controls="credit-card-dropdown"><img src="./media/Icons/credit-card.svg" alt="Credit card icon"> Credit Cards <span class="material-symbols-outlined" aria-hidden="true">
+                        chevron_right
+                    </span></a>
+                <div id="credit-card-dropdown" class="category-dropdown">
+                    <div class="dropdown-header">Credit Cards</div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Card Types</div>
+                        <a href="#" class="dropdown-link">Cash Back Cards</a>
+                        <a href="#" class="dropdown-link">Travel Rewards</a>
+                        <a href="#" class="dropdown-link">Low Interest Cards</a>
+                    </div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Manage Cards</div>
+                        <a href="#" class="dropdown-link">Balance Transfer</a>
+                        <a href="#" class="dropdown-link">Payment Options</a>
+                        <a href="#" class="dropdown-link">Credit Score Tools</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Loans Dropdown -->
+            <div class="categories-inner-div">
+                <a href="#" aria-expanded="false" aria-controls="personal-loans-dropdown"><img src="./media/Icons/real_estate_agent_30dp_000_FILL0_wght400_GRAD0_opsz24.svg" alt="Real estate icon">
+                    Personal Loans <span class="material-symbols-outlined" aria-hidden="true">
+                        chevron_right
+                    </span></a>
+                <div id="personal-loans--dropdown" class="category-dropdown">
+                    <div class="dropdown-header">Loan Options</div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Loan Types</div>
+                        <a href="#" class="dropdown-link">Debt Consolidation</a>
+                        <a href="#" class="dropdown-link">Home Improvement</a>
+                        <a href="#" class="dropdown-link">Auto Loans</a>
+                    </div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Loan Tools</div>
+                        <a href="#" class="dropdown-link">Loan Calculator</a>
+                        <a href="#" class="dropdown-link">Pre-Qualification</a>
+                        <a href="#" class="dropdown-link">Rate Comparison</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investing Dropdown -->
+            <div class="categories-inner-div">
+                <a href="#" aria-expanded="false" aria-controls="Investment dropdown"><img src="./media/Icons/finance_mode_30dp_000_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    Investing <span class="material-symbols-outlined" aria-hidden="true">
+                        chevron_right
+                    </span></a>
+                <div id="investing-dropdown" class="category-dropdown">
+                    <div class="dropdown-header">Investment Services</div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Account Types</div>
+                        <a href="#" class="dropdown-link">IRAs</a>
+                        <a href="#" class="dropdown-link">Brokerage Accounts</a>
+                        <a href="#" class="dropdown-link">529 College Plans</a>
+                    </div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Resources</div>
+                        <a href="#" class="dropdown-link">Investment Calculator</a>
+                        <a href="#" class="dropdown-link">Market Research</a>
+                        <a href="#" class="dropdown-link">Retirement Planning</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Wellness Hub Dropdown -->
+            <div class="categories-inner-div">
+                <a href="#" aria-expanded="false" aria-controls="financial wellness hub dropdown"><img src="./media/Icons/currency-exchange.svg" alt="Finance icon"> Financial Wellness <span class="material-symbols-outlined" aria-hidden="true">
+                        chevron_right
+                    </span></a>
+                <div id="financial-wellness-hub-dropdown" class="category-dropdown">
+                    <div class="dropdown-header">Financial Wellness Hub</div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Education</div>
+                        <a href="https://www.mymoney.gov" class="dropdown-link" target="_blank">Money Basics</a>
+                        <a href="https://www.consumerfinance.gov" class="dropdown-link" target="_blank">Consumer
+                            Protection</a>
+                        <a href="#" class="dropdown-link">Budgeting 101</a>
+                    </div>
+
+                    <div class="dropdown-section">
+                        <div class="dropdown-section-title">Tools</div>
+                        <a href="#" class="dropdown-link">Savings Calculator</a>
+                        <a href="#" class="dropdown-link">Debt Payoff Planner</a>
+                        <a href="#" class="dropdown-link">Credit Score Simulator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- First Section -->
+        <div class="first-sec">
+            <div class="fs-top">
+                <div>
+                    <div>
+                        <p class="ext">NEW CHECKING OFFER</p>
+                        <P class="txt">Open a checking account</P>
+                    </div>
+                    <div>
+                        <p><strong>Earn a $300 cash offer</strong> when you open a new eligible checking account and
+                            make qualifying direct deposits.</p>
+                    </div>
+                    <span>See offer details <span class="material-symbols-outlined" aria-hidden="true">
+                            arrow_forward_ios
+                        </span></span>
+                </div>
+                <div class="img-wrap">
+                    <img src="https://www2.bac-assets.com/homepage/spa-assets/images/assets-images-site-hp-assets-mastheads-icons-shl_offer_art_6819646_e.svg"
+                        alt="Checking account offer illustration" loading="lazy">
+                </div>
+            </div>
+            <div class="fs-btm">
+                <div>
+                    <span>
+                        <p class="txt">NEW CREDIT CARD OFFER</p>
+                        <P>Earn 3% cash back on all purchases</P>
+                        <span class="empt" style="width: 150px; height: 150px; background-color: #fffffe;"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Testimonials Section -->
+        <section class="testimonials" aria-label="Customer testimonials">  
+            <h2>Trusted by Thousands</h2>
+            <div class="testimonial-loop-wrapper">
+                <div class="testimonial-track" aria-live="polite">
+                    <div class="testimonial-track-loop-set">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Going from being homeless to having a stable home has been life-changing. Try Ocean Bank's Financial Wellness Program!"</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial6.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Michael T.</strong>
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Switched to Ocean Bank last year and saved $1200 in fees!"</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial3.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Mitchel C.</strong>
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"I went from a traditional bank to Ocean Bank and couldn't be happier!"</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial4.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Sarah K</strong>
+                                    <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Their mobile app is the easiest I've used in 10 years of banking."</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial5.jpeg" alt="User Avatar" class="testimonial-avatar ">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Chennai S.</strong>
+                                    <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Ocean Bank has transformed my banking experience."</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial6.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Jones Anderson</strong>
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-track-loop-set">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Going from being homeless to having a stable home has been life-changing. Try Ocean Bank's Financial Wellness Program!"</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial6.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Michael T.</strong>
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Switched to Ocean Bank last year and saved $1200 in fees!"</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial3.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Mitchel C.</strong>
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"I went from a traditional bank to Ocean Bank and couldn't be happier!"</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial4.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Sarah K</strong>
+                                    <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Their mobile app is the easiest I've used in 10 years of banking."</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial5.jpeg" alt="User Avatar" class="testimonial-avatar ">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Chennai S.</strong>
+                                    <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-card" role="article" itemscope itemtype="https://schema.org/Review">
+                            <div class="testimonial-water-drop"></div>
+                            <p class="testimonial-text" itemprop="reviewBody">"Ocean Bank has transformed my banking experience."</p>
+                            <div class="user">
+                                <!-- <span class="material-symbols-outlined"  aria-hidden="true">account_circle</span> -->
+                                <div>
+                                    <img src="./media/images/testimonial6.jpeg" alt="User Avatar" class="testimonial-avatar">
+                                </div>
+                                <div>
+                                    <strong itemprop="author">Jones Anderson</strong>
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Banking App preview Section -->
+        <section class="app-preview" aria-label="Mobile banking app">
+            <div class="app-content">
+                <h2>Banking in Your Pocket</h2>
+                <ul class="app-features">
+                    <li><span class="material-symbols-outlined" aria-hidden="true">photo_camera</span> Mobile Check Deposit</li>
+                    <li><span class="material-symbols-outlined" aria-hidden="true">bolt</span> Instant Transfers</li>
+                    <li><span class="material-symbols-outlined" aria-hidden="true">fingerprint</span> Biometric Security</li>
+                </ul>
+                <div class="app-download">
+                    <p>Get the app:</p>
+                    <div class="store-buttons">
+                        <a href="#" aria-label="Download on the App Store"><img src="./media/Icons/apple-app-store-colored.svg" alt="App Store button" loading="lazy"></a>
+
+                        <a href="#" aria-label="Download on Google Play"><img src="./media/Icons/google-play-icon-colored.svg" alt="Google Play button" loading="lazy"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="phone-mockup" aria-hidden="true">
+                <div class="water-drops-container">
+                    <div class="water-drop-sim"></div>
+                    <div class="water-drop-sim"></div>
+                    <div class="water-drop-sim"></div>
+                </div>
+                <div class="screen"></div>
+            </div>
+            <div class="drops" style="width: 80px; height: 80px; transform: skew(-45deg);"></div>
+            <div class="drops" style="width: 90px; height: 90px; transform: skew(-45deg); align-self: baseline;"></div>
+            <div class="drops" style="width: 70px; height: 70px; transform: skew(-45deg); align-self: auto;"></div>
+            <div class="drops" style="width: 100px; height: 100px; transform: skew(-50deg); align-self: last baseline; margin-left: -10px;"></div>
+            <div class="drops"></div>
+        </section>
+
+        <!-- Getting Started Section -->
+        <section class="getting-started" aria-label="Getting started with Ocean Bank">
+            <h2>Getting Started is Easy</h2>
+            <ol class="steps">
+                <li>
+                    <span class="material-symbols-outlined" aria-hidden="true">person_add</span>
+                    <strong>Sign Up</strong>
+                    <p>Create your free Ocean Bank account in minutes.</p>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+                    <strong>Verify</strong>
+                    <p>Securely verify your identity online—no branch visit needed.</p>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined" aria-hidden="true">account_balance_wallet</span>
+                    <strong>Fund & Go</strong>
+                    <p>Add money and start banking right away.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Features & Benefits Section -->
+        <section class="features-benefits" aria-label="Features and benefits">
+            <h2>Why Choose Ocean Bank?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="material-symbols-outlined" aria-hidden="true">support_agent</span>
+                    <h3>24/7 Support</h3>
+                    <p>Get help anytime from real people, not robots.</p>
+                </div>
+                <div class="feature">
+                    <span class="material-symbols-outlined" aria-hidden="true">payments</span>
+                    <h3>Zero-Fee Accounts</h3>
+                    <p>No monthly fees, no minimums, no surprises.</p>
+                </div>
+                <div class="feature">
+                    <span class="material-symbols-outlined" aria-hidden="true">bolt</span>
+                    <h3>Instant Transfers</h3>
+                    <p>Move money in seconds, not days.</p>
+                </div>
+                <div class="feature">
+                    <span class="material-symbols-outlined" aria-hidden="true">eco</span>
+                    <h3>Sustainable Banking</h3>
+                    <p>We invest in green initiatives and climate solutions.</p>
+                </div>
+                <div class="feature">
+                    <span class="material-symbols-outlined" aria-hidden="true">phone_iphone</span>
+                    <h3>Mobile First</h3>
+                    <p>Bank anywhere with our award-winning app.</p>
+                </div>
+                <div class="feature">
+                    <span class="material-symbols-outlined" aria-hidden="true">credit_score</span>
+                    <h3>Credit Tools</h3>
+                    <p>Free credit score monitoring and financial wellness tools.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners & Integrations Section -->
+        <section class="partners-integrations" aria-label="Partners and integrations">
+            <h2>Our Trusted Partners</h2>
+            <div class="partners-logos">
+                <img src="./media/Icons/visa.svg" alt="Visa" height="40" loading="lazy">
+                <img src="./media/Icons/mastercard.svg" alt="Mastercard" height="40" loading="lazy">
+                <img src="./media/Icons/apple-pay.svg" alt="Apple Pay" height="40" loading="lazy">
+                <img src="./media/Icons/google-pay.svg" alt="Google Pay" height="40" loading="lazy">
+                <!-- <img src="./media/Icons/square.svg" alt="Square" height="40" loading="lazy"> -->
+                <img src="./media/Icons/plaid.svg" alt="Plaid" height="40" loading="lazy">
+            </div>
+            <p class="partners-note">Ocean Bank integrates with leading payment networks and fintech platforms for a seamless experience.</p>
+        </section>
+
+        <!-- Security Section -->
+        <section class="security-section" aria-label="Security features">
+            <h2>Your Security Comes First</h2>
+            <div class="badges">
+                <div class="badge-item" itemscope itemtype="https://schema.org/WebPageElement">
+                    <span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+                    <p itemprop="description">FDIC Insured</p>
+                </div>
+
+                <div class="badge-item" itemscope itemtype="https://schema.org/WebPageElement">
+                    <span class="material-symbols-outlined" aria-hidden="true">lock</span>
+                    <p itemprop="description">256-bit Encryption</p>
+                </div>
+                <div class="badge-item" itemscope itemtype="https://schema.org/WebPageElement">
+                    <span class="material-symbols-outlined" aria-hidden="true">fingerprint</span>
+                    <p itemprop="description">Biometric Login</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div>© <span id="current-year"></span> Ocean Bank. Member FDIC.</div>
+        <nav aria-label="Footer navigation">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Use</a>
+            <a href="#accessibility">Accessibility</a>
+        </nav>
+    </footer>
+
+    <script type="module" src="./auth/scripts/signup.js"></script>
+    <script type="module" src="./scripts.js"></script>
+</body>
+
+</html>

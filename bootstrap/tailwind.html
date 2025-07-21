@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Carousel Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .carousel-track {
+      width: 300%; /* 3 slides */
+    }
+    .carousel-slide {
+      flex: 0 0 100%;
+    }
+  </style>
+</head>
+<body clss="bg-gray-900 flex items-center justify-center min-h-screen">
+
+  <div class="relative w-full max-w-md overflow-hidden rounded-xl bg-gradient-to-br from-teal-800 to-cyan-700 text-white h-36 flex items-center justify-center">
+    <div id="tw-carousel-track" class="carousel-track flex transition-transform duration-700 ease-in-out h-full">
+      <div class="carousel-slide flex items-center justify-center text-center px-4">
+        Earn 5.2% APY on your savings—start today.
+      </div>
+      <div class="carousel-slide flex items-center justify-center text-center px-4">
+        FDIC-insured accounts. 24/7 fraud monitoring.
+      </div>
+      <div class="carousel-slide flex items-center justify-center text-center px-4">
+        Open an account in 3 minutes—no paperwork.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const track = document.getElementById('tw-carousel-track');
+    const slides = track.children;
+    let index = 0;
+
+    // Initialize position
+    track.style.transform = 'translateX(0%)';
+
+    // Start auto slide
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }, 3000);
+  </script>
+
+</body>
+</html>

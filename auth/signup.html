@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Ocean Bank offers checking, savings, credit cards and loans with award-winning digital banking">
+    <title>Ocean Bank - Create a new online account</title>
+    <meta name="color-scheme" content="light dark">
+    <!-- Preload critical resources -->
+    <link rel="stylesheet" href="./styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" as="style">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Added font-display:swap via URL parameter -->
+
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body id="signup-body">
+    <div class="return-btn">
+        <span class="material-symbols-outlined" aria-hidden="true">
+arrow_back
+</span> back
+    </div>
+    <div>
+    <form id="form-el">
+        <h2>Register</h2>
+        
+        <div class="name-element">
+            <div>
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstname" placeholder="John">
+            </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastname" placeholder="Doe">
+            </div>
+        </div>
+        
+        <div class="contact-element">
+            <div>
+                <label for="phone">Phone no</label>
+                <input type="number" name="phone" id="phone" placeholder="enter Your phone no">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="enter your email">
+            </div>
+        </div>
+        
+        <div class="password-element">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="*********">
+            <span class="material-symbols-outlined hide-password" aria-hidden="true">
+visibility_off
+</span>
+        </div>
+        <span class="password-hint">must contain 8 char.</span>
+        <div class="password-element">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="*********" required>
+            <span class="material-symbols-outlined hide-password" aria-hidden="true">
+visibility_off
+</span>
+        </div>
+        <p id="confPassText"></p>
+        <button><span class="material-symbols-outlined" aria-hidden="true">person_add</span> Create Account</button>
+    </form>
+    <div class="login-link">
+        <span>By continuing, you agree to our <a href="#">Terms of Service </a>and <br><a href="#">Privacy Policy.</a></span>
+    </div>
+    </div>
+</body>
+</html>
