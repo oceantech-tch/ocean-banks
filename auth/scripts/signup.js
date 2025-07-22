@@ -149,7 +149,7 @@ formEl.addEventListener('submit', async (e) => {
             setDoc(doc(accountsRef, 'regular'), {
                 type: 'regular',
                 accountNumber: regularAccNum,
-                balance: 0,
+                balance: 50,
                 createdAt: new Date()
             }),
             setDoc(doc(accountsRef, 'savings'), {
